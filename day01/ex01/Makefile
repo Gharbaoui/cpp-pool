@@ -1,9 +1,8 @@
 NAME = zombie
 
-SRC =   main.cpp        \
-        newZombie.cpp   \
-        randomChump.cpp \
+SRC =   ZombieHorde.cpp \
         Zombie.cpp      \
+        main.cpp \
 
 all: $(NAME)
 
