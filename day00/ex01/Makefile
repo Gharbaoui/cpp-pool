@@ -1,8 +1,15 @@
-NAME = phone
+NAME = phonebook
 
-SRC = phone-book.cpp phone-func.cpp
+SRC =   phone-book.cpp  \
+        phone-func.cpp  \
 
 all: $(NAME)
 
-$i(NAME): $(SRC)
-    clang++ -Wall -Wextra -Werror $(SRC) -o $(NAME)
+$(NAME): $(SRC)
+	clang++ $(SRC) -o $(NAME)
+
+clean:
+	rm -rf $(NAME)
+fclean: clean
+
+re: fclean all
