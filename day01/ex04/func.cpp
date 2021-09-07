@@ -13,14 +13,13 @@ std::string get_new_name(char *name) /// return new file name
 
 void    get_new_contant(std::string &content, char **args)
 {
-    std::fstream    file;
+    std::fstream    file (args[1]);
 	std::ofstream	newfile;
     int             i;
     int             contentIndex;
 
     contentIndex = 0;
     i = 0;
-    file.open(args[1]);
     for (char c; file.get(c); content.push_back(c)){
         if (args[2][i] == 0){
             replace_str(content, args, contentIndex); // work here

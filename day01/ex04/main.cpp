@@ -9,7 +9,7 @@ int main(int argc, char **argv)
         if (file_exits(argv[1]))
             get_new_contant(content, argv);
         else
-            std::cout << "no file" << std::endl;
+            std::cout << "error with file" << std::endl;
     }
     else
         std::cout << "args error" << std::endl;
@@ -17,11 +17,11 @@ int main(int argc, char **argv)
 
 bool    file_exits(char *name) // return true if file exist false if not
 {
-    FILE *f;
-    f = fopen(name, "r");
-    if (f)
+	std::fstream f(name);
+    
+    if (f.is_open())
     {
-        fclose(f);
+        f.close();
         return true;
     }
     return false;
