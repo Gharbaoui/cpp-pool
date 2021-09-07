@@ -2,7 +2,7 @@
 
 int main ()
 {
-    Zombie *z;
+   Zombie *z;
 
     randomChump("ZOMBIE");
     z = newZombie("Zombie");

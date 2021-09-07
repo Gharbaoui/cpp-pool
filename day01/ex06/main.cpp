@@ -1,5 +1,10 @@
 #include "Karen.hpp"
 
+char	to_lower(char c)
+{
+	return std::tolower(c);
+}
+
 int main(int args, char **argv)
 {
     Karen k;
@@ -19,10 +24,7 @@ int main(int args, char **argv)
             if (found)
             {
                 std::cout << "[" << *i << "]" << std::endl;
-                std::transform(i->begin(), i->end(), i->begin(),
-                [](char c){
-                    return std::tolower(c);
-                });
+                std::transform(i->begin(), i->end(), i->begin(), to_lower);
                 k.complain(*i);
             }
         }

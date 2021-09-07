@@ -59,8 +59,8 @@ bool good_str(std::string str)
 
 bool    is_num(std::string num)
 {
-    for (char c : num)
-        if (std::isdigit(c) == 0)
+    for (int i = 0; num[i]; i++)
+        if (std::isdigit(num[i]) == 0)
             return false;
     return true;
 }

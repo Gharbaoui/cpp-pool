@@ -1,9 +1,20 @@
 #include "main.hpp"
 
+std::string get_new_name(char *name) /// return new file name
+{
+	std::string new_name;
+	for (int i = 0; name[i]; i++) {
+		new_name.push_back(std::toupper(name[i]));
+	}
+
+	new_name += ".replace";
+	return new_name;
+}
 
 void    get_new_contant(std::string &content, char **args)
 {
     std::fstream    file;
+	std::ofstream	newfile;
     int             i;
     int             contentIndex;
 
@@ -27,7 +38,7 @@ void    get_new_contant(std::string &content, char **args)
         }
     }
     file.close();
-    file.open(args[1], std::ios::out | std::ios::trunc); // empty file
-    file << content; // write to file
-    file.close(); //close file
+    newfile.open(get_new_name(args[1]), std::ios::out | std::ios::trunc); // empty file
+    newfile << content; // write to file
+    newfile.close(); //close file
 }

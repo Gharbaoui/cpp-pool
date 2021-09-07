@@ -1,10 +1,10 @@
 #include "Karen.hpp"
 
 Karen::Karen(){
-    fptr.insert({"debug", &Karen::debug});
-    fptr.insert({"info", &Karen::info});
-    fptr.insert({"warning", &Karen::warning});
-    fptr.insert({"error", &Karen::error});
+    fptr.insert(std::pair<std::string, void	(Karen::*)()>("debug", &Karen::debug));
+    fptr.insert(std::pair<std::string, void (Karen::*)()>("info", &Karen::info));
+    fptr.insert(std::pair<std::string, void (Karen::*)()>("warning", &Karen::warning));
+    fptr.insert(std::pair<std::string, void (Karen::*)()>("error", &Karen::error));
 }
 
 void    Karen::debug()
@@ -45,5 +45,5 @@ int main()
 {
     Karen k;
     
-    k.complain("error");
+    k.complain("debug");
 }

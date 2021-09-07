@@ -1,15 +1,10 @@
 #include "main.hpp"
 
-int  Box::counter = 10;
-
-void    Box::get_info()
-{
-    std::cout << counter << std::endl;
-}
-
 int main()
 {
-    Box b;
+	Box b(1, 2, 33);
+	int (Box::*a)() = &Box::area;
 
-    Box::get_info();
+	std::cout << (b.*a)() << std::endl;
+
 }
