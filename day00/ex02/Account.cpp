@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
@@ -13,6 +14,7 @@ Account::Account(int initial_deposit)
     _nbAccounts++;
     _totalAmount += initial_deposit;
     _amount = initial_deposit;
+	Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex <<
     ";amount:" << _amount << ";created" << std::endl;
 }
@@ -20,6 +22,7 @@ Account::Account(int initial_deposit)
 Account::~Account()
 {
 
+	Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
     _totalAmount -= _amount;
     _nbAccounts--;
@@ -28,6 +31,7 @@ Account::~Account()
 
 void    Account::displayAccountsInfos()
 {
+	Account::_displayTimestamp();
     std::cout << "accounts:" << _nbAccounts <<
     ";total:" << _totalAmount << ";deposits:" <<
     _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals
@@ -36,6 +40,7 @@ void    Account::displayAccountsInfos()
 
 void    Account::displayStatus() const
 {
+	Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex <<
     ";amount:" << _amount << ";deposits:" << _nbDeposits
     << ";withdrawals:" << _nbWithdrawals << std::endl;
@@ -43,6 +48,7 @@ void    Account::displayStatus() const
 
 void    Account::makeDeposit(int deposit)
 {
+	Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex <<
     ";p_amount:" << _amount << ";deposit:" << deposit <<
     ";amount:" << _amount + deposit <<";nb_deposits:"
@@ -55,6 +61,7 @@ void    Account::makeDeposit(int deposit)
 
 bool    Account::makeWithdrawal(int withdrawal)
 {
+	Account::_displayTimestamp();
     if (_amount >= withdrawal)
     {
         std::cout << "index:" << _accountIndex <<
@@ -97,4 +104,28 @@ int Account::getNbWithdrawals()
 int Account::checkAmount() const
 {
     return _amount;
+}
+
+void	Account::_displayTimestamp()
+{
+	int month;
+	std::time_t t = std::time(0);
+	std::tm *fut = std::localtime(&t);
+	month = fut->tm_mon + 1;
+	std::cout << "[" << fut->tm_year + 1900;
+	if (month < 10)
+		std::cout << "0";
+	std::cout << month;
+	if (fut->tm_mday < 10)
+		std::cout << "0";
+	std::cout << fut->tm_mday << "_";
+	if (fut->tm_hour < 10)
+		std::cout << "0";
+	std::cout << fut->tm_hour;
+	if (fut->tm_min< 10)
+		std::cout << "0";
+	std::cout << fut->tm_min;
+	if (fut->tm_sec < 10)
+		std::cout << "0";
+	std::cout << fut->tm_sec << "] ";
 }

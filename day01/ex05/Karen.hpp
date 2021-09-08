@@ -7,7 +7,7 @@ class Karen{
         Karen();
         void    complain(std::string level);
     private:
-        std::map <std::string, void (Karen::*)()> fptr;
+       // std::map <std::string, void (Karen::*)()> fptr;
         void    debug();
         void    info();
         void    warning();

@@ -2,13 +2,14 @@
 
 #define arr_size 8
 
-typedef struct {
-    std::string firstname;
-    std::string lastname;
-    std::string nickname;
-    std::string phone_number;
-    std::string darkest_secret;
-} Account;
+class Account{
+	public:
+		std::string firstname;
+		std::string lastname;
+		std::string nickname;
+		std::string phone_number;
+		std::string darkest_secret;
+};
 
 class PhoneBook
 {
