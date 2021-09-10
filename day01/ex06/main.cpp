@@ -1,38 +1,27 @@
 #include "Karen.hpp"
 
-char	to_lower(char c)
-{
-	return std::tolower(c);
-}
-
 int main(int args, char **argv)
 {
-    Karen k;
-    std::vector<std::string>::iterator i;
-    std::vector<std::string> a;
-    bool    found;
+	Karen k;
+	bool	start;
 
-    found = false;
-    a.push_back("DEBUG");
-    a.push_back("INFO");
-    a.push_back("WARNING");
-    a.push_back("ERROR");
-    if (args == 2){
-        for (i = a.begin(); i != a.end(); i++){
-            if (argv[1] == *i)
-                found = true;
-            if (found)
-            {
-                std::cout << "[" << *i << "]" << std::endl;
-                std::transform(i->begin(), i->end(), i->begin(), to_lower);
-                k.complain(*i);
-            }
-        }
-        if (!found)
+	start = false;
+	std::string  names[num_mem] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	if (args == 2) {
+		for (int i = 0; i < num_mem; i++) {
+			if (names[i] == argv[1])
+				start = true;
+			if (start) {
+				std::cout << "[" << names[i] << "]" << std::endl;
+				k.complain(names[i]);
+			}
+		}
+		if (!start) {
             std::cout <<
             "[ Probably complaining about insignificant problems ]"
             << std::endl;
-    }else{
+		}
+	} else {
         std::cout << "Not valid number of arguments" << std::endl;
-    }
+	}
 }

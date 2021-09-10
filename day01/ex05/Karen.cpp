@@ -1,10 +1,15 @@
 #include "Karen.hpp"
 
 Karen::Karen(){
-  /*  fptr.insert(std::pair<std::string, void	(Karen::*)()>("debug", &Karen::debug));
-    fptr.insert(std::pair<std::string, void (Karen::*)()>("info", &Karen::info));
-    fptr.insert(std::pair<std::string, void (Karen::*)()>("warning", &Karen::warning));
-    fptr.insert(std::pair<std::string, void (Karen::*)()>("error", &Karen::error));*/
+	mfsp[0] = &Karen::debug;
+	mfsp[1] = &Karen::info;
+	mfsp[2] = &Karen::warning;
+	mfsp[3] = &Karen::error;
+
+	mfsn[0] = "DEBUG";
+	mfsn[1] = "INFO";
+	mfsn[2] = "WARNING";
+	mfsn[3] = "ERROR";
 }
 
 void    Karen::debug()
@@ -34,22 +39,11 @@ void    Karen::error(){
 
 void    Karen::complain(std::string level)
 {
-	int	arr[] = {std::stoi("debug"), std::stoi("info"), std::stoi("warning"), std::stoi("error")};
-  /*  void    (Karen::*a)() = fptr[level];
-    if (a != NULL)
-        (this->*a)();
-    else
-        std::cout << "not valid" << std::endl;*/
-
-	switch (std::stoi(level)){
-		case std::stoi("deb:
-			this->debug();
-			break ;
-		case std::stoi("info"):
-			this->info();
-			break;
-		default:
-			std::cout << "not valid!" << std::endl;
+	for (int i = 0; i < num_mem; i++) {
+		if (level == mfsn[i]) {
+			void (Karen::*a)() = mfsp[i];
+			(this->*a)();
+		}
 	}
 }
 
@@ -57,5 +51,5 @@ int main()
 {
     Karen k;
     
-    k.complain("debug");
+    k.complain("ERROR");
 }
