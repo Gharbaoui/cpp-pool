@@ -2,10 +2,9 @@
 
 int main()
 {
-	Fixed a(2.1f);
-	Fixed	b(2.5f);
+	Fixed a(11);
+	
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-
-	std::cout << (a <= b) << std::endl;;
-
+	std::cout << (a / b) << std::endl;
 }
