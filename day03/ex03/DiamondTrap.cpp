@@ -6,16 +6,15 @@ DiamondTrap::DiamondTrap()
 	std::cout << "constructor called"  << std::endl;
 	
 	_name = "DiamondTrap";
-	ScavTrap::_name = "DiamondTrap_clap_name";
+	ClapTrap::_name = "DiamondTrap_clap_name";
 	default_info(_hitpoints, _attackdamage, _energypoints);
 }
 
-DiamondTrap::DiamondTrap(std::string const &name)
+DiamondTrap::DiamondTrap(std::string const &name) : ScavTrap(name)
 {
 	std::cout << "DiamondTrap ";
 	std::cout << "param constructor" << std::endl;
 	_name = name;
-	ScavTrap::_name = name + "_clap_name";
 	default_info(_hitpoints, _attackdamage, _energypoints);
 }
 
@@ -45,9 +44,18 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &rhs)
 	return *this;
 }
 
+void	DiamondTrap::print() const 
+{
+	std::cout << "clap trap name |" << ClapTrap::_name << "|" << std::endl;
+	std::cout << "name |" << _name << "|" << std::endl;
+	std::cout << "hit points |" << _hitpoints << "|" << std::endl;
+	std::cout << "energy points |" << _energypoints << "|" << std::endl;
+	std::cout << "attack damage |" << _attackdamage << "|" << std::endl << std::endl;;
+}
+
 void	default_info(int &hp, int &ad, int &ep)
 {
 	hp = 100;
 	ad = 30;
-	ep = 10; // later change
+	ep = 50; // later change
 }
