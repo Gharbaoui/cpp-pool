@@ -10,10 +10,11 @@ DiamondTrap::DiamondTrap()
 	default_info(_hitpoints, _attackdamage, _energypoints);
 }
 
-DiamondTrap::DiamondTrap(std::string const &name) : ScavTrap(name)
+DiamondTrap::DiamondTrap(std::string const &name)
 {
 	std::cout << "DiamondTrap ";
 	std::cout << "param constructor" << std::endl;
+    ClapTrap::_name = name + "_clap_name";
 	_name = name;
 	default_info(_hitpoints, _attackdamage, _energypoints);
 }
@@ -44,15 +45,11 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &rhs)
 	return *this;
 }
 
-void	DiamondTrap::print() const 
+void	DiamondTrap::print_diamond() const 
 {
-	std::cout << "clap trap name |" << ClapTrap::_name << "|" << std::endl;
-	std::cout << "name |" << _name << "|" << std::endl;
-	std::cout << "hit points |" << _hitpoints << "|" << std::endl;
-	std::cout << "energy points |" << _energypoints << "|" << std::endl;
-	std::cout << "attack damage |" << _attackdamage << "|" << std::endl << std::endl;;
+    this->ClapTrap::print();
+	std::cout << "name |" << _name << "|" << std::endl << std::endl;
 }
-
 void	default_info(int &hp, int &ad, int &ep)
 {
 	hp = 100;

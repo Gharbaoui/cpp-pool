@@ -3,14 +3,21 @@
 int main()
 {
 	ClapTrap a;
-	ClapTrap m("A");
-	ClapTrap b(m);
-	ClapTrap g;
+    a.print();
 
+	ClapTrap m("A");
+    m.print();
+
+	ClapTrap b(m);
+    b.print();
+
+	ClapTrap g;
 	g = m;
+    g.print();
+
 	g.attack("R");
 	m.attack("B");
 
 	m.takeDamage(45);
-	a.beRepaired(10);
+	b.beRepaired(10);
 }

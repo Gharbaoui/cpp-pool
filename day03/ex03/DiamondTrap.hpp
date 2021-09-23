@@ -15,7 +15,7 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap	&operator=(DiamondTrap const &rhs);
 
 		/// print
-		void	print() const;
+        void	print_diamond() const;
 	private:
 		std::string _name;
 };

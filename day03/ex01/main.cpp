@@ -4,21 +4,19 @@ int main()
 {
 	//check default constructor
 	ScavTrap a;
-	std::cout << std::endl;
+    a.print();
 	/// check paramter con constructor
 	ScavTrap b("Scave Trappppp");
-	std::cout << b.getName() << std::endl << std::endl;
-	
+	b.print();
+
 	// check copy constructor
 	ScavTrap c(b);
-	std::cout << c.getName() << std::endl << std::endl;
-	std::cout << std::endl;
+    c.print();
 
 	/// check = operator 
 	ScavTrap d;
 	d = c;
-	std::cout << d.getName() << std::endl << std::endl;
-	std::cout << std::endl;
+    d.print();
 
 	// check destructor 
 	{
@@ -26,7 +24,7 @@ int main()
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-
+    a.attack("new one ");
 	// test guardGate
 	a.guardGate();
 }

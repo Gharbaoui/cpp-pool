@@ -47,7 +47,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 
 void ClapTrap::attack(std::string const & target)
 {
-	std::cout << "ClapTrap ";
+	std::cout << "|ClapTrap |";
 	std::cout << _name << " attacks " << target << std::endl;
 }
 
@@ -106,3 +106,12 @@ void	ClapTrap::setName(std::string name)
 {
 	_name = name;
 }
+
+void    ClapTrap::print() const 
+{
+        std::cout << "name |" << _name << "|" << std::endl;
+        std::cout << "hit points |" << _hitpoints << "|" << std::endl;
+        std::cout << "energy points |" << _energypoints << "|" << std::endl;
+        std::cout << "attack damage |" << _attackdamage << "|" << std::endl << std::endl;
+}
+

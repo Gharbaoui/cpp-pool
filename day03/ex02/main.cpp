@@ -3,61 +3,34 @@
 
 int main()
 {
-	/*
-	//check default constructor
-	ScavTrap a;
-	std::cout << std::endl;
-	/// check paramter con constructor
-	ScavTrap b("Scave Trappppp");
-	std::cout << b.getHitPoints() << std::endl << std::endl;
-	
-	// check copy constructor
-	ScavTrap c(b);
-	std::cout << c.getName() << std::endl << std::endl;
-	std::cout << std::endl;
+    /// default constructor
+    FragTrap a;
+    a.print();
 
-	/// check = operator 
-	ScavTrap d;
-	d = c;
-	std::cout << d.getName() << std::endl << std::endl;
-	std::cout << std::endl;
+    // param constructor
+    FragTrap b("Frag TRAPPP");
+    b.print();
 
-	// check destructor 
-	{
-		ScavTrap a;
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
+    // copy constructor
+    FragTrap c(b);
+    c.print();
+    
+    // ASSIGNMENT operator
+    FragTrap d;
+    std::cout << "=====" << std::endl;
+    d = c;
+    d.print();
 
-	// test guardGate
-	a.guardGate();*/
-
-
-	///default constructor
-	FragTrap a;
-	std::cout << std::endl;
-
-	/// param constructor
-	FragTrap c("Tr1");
-	std::cout << std::endl;
-	// copy constructor
-	FragTrap b (c);
-	std::cout << std::endl;
-	// assignment operator
-	a = b;
-	std::cout << std::endl;
-	//destructor 
-	{
-		FragTrap g;
-		std::cout << std::endl;
-	}
-	std::cout << a.getName() << " " << a.getAttackDamage()
-		<< " " << a.getHitPoints() << " " << a.getEnergyPoints() << std::endl;
-
-	/// high five
-	a.highFivesGuys();
-	std::cout << std::endl;
-	a.attack("tr2");
-	std::cout << std::endl;
+    /// destructor
+    {
+        FragTrap *a = new FragTrap();
+        delete a;
+        std::cout << std::endl;
+    }
+    
+    /// functions test
+    a.highFivesGuys();
+    b.attack("new string");
+    std::cout << std::endl;
 }
 
