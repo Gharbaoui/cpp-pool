@@ -21,11 +21,12 @@ int main(int argc, char **argv)
             else if (std::string(argv[i]) == "nan" || std::string(argv[i]) == "nanf")
                 from_nan();
             else
-                std::cout << "UNKNOWN DATA TYPE" << std::endl;}
-        }catch(...)
+                std::cout << "UNKNOWN DATA TYPE" << std::endl;
+		}
+        catch(...)
         {
             std::cout << "BAD input" << std::endl;
         }
-    }else
+	}else
         std::cout << "args error" << std::endl;
 }
